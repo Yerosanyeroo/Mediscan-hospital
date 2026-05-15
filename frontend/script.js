@@ -3,7 +3,7 @@
 // Saves everything to MongoDB via Render API
 // ============================================
 
-const API_BASE_URL = 'https://mediscan-api.onrender.com/api';
+const API_BASE_URL = 'https://mediscan-api-93wl.onrender.com';
 
 let isDoctorAuthenticated = false;
 let currentPatient = null;
