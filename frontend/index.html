@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediScan AI - Production</title>
+    <link rel="stylesheet" >
+    <style>
+        /* Include all the CSS from the previous working version */
+        /* Same styles as the working face scan version */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #4A90E2; --secondary: #40E0D0; --accent: #FF6B6B;
+            --dark: #1a1a2e; --light: #f0f4f8; --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--light); }
+        
+        /* ... (include all CSS from the working version) ... */
+    </style>
+</head>
+<body>
+    <!-- Same HTML structure as the working face scan version -->
+    <!-- But with API_BASE_URL configuration -->
+
+    <script>
+        // ============================================
+        // PRODUCTION CONFIGURATION
+        // ============================================
+        const API_BASE_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000/api' 
+            : 'https://your-domain.com/api';
+        
+        let authToken = null;
+        let faceToken = null;
+
+        // Check if deployed on same domain
+        if (window.location.hostname !== 'localhost') {
+            API_BASE_URL = '/api'; // Use relative path when served by Nginx
+        }
+
+        console.log('🏥 MediScan AI Production Mode');
+        console.log('🔗 API:', API_BASE_URL);
+        console.log('🔒 HTTPS:', window.location.protocol === 'https:');
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
